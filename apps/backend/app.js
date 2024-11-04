@@ -1,5 +1,6 @@
 import path from 'path'
 import AutoLoad from '@fastify/autoload'
+import cors from '@fastify/cors';
 import { fileURLToPath } from 'url'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -10,6 +11,11 @@ export const options = {}
 
 export default async function (fastify, opts) {
   // Place here your custom code!
+  fastify.register(cors, {
+    origin: '*', // Permite acesso de qualquer origem (ajuste conforme necessário)
+    methods: ['GET', 'POST', 'DELETE', 'PATCH'], // Métodos permitidos
+    allowedHeaders: ['Content-Type'], // Cabeçalhos permitidos
+  });
 
   // Do not touch the following lines
 
