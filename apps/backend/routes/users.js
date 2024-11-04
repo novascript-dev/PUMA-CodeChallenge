@@ -36,7 +36,7 @@ export default async function (fastify, opts) {
             userList.sort((a, b) => a.username.localeCompare(b.username));
         }
 
-        return reply.status(201).send(userList)
+        return reply.status(200).send(userList)
     })
 
     fastify.delete('/users/:username', async (request, reply) => {
