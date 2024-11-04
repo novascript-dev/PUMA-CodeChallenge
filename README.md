@@ -4,6 +4,12 @@ As regras de negócio do desafio podem ser lidas no [repositório oficial do des
 
 ## Rodando este projeto:
 
+Primeiramente, insira seu `token` da API do GitHub no arquivo `example.env` do app `backend` em `apps/backend/example.env` e o renomeie para `.env`.
+
+```
+GITHUB_TOKEN=github_seutoken_
+```
+
 O projeto foi criado utilizando `Turborepo`, portanto, instale todas as dependências (backend e frontend) desse projeto executando o seguinte comando na pasta raíz:
 
 ```sh
