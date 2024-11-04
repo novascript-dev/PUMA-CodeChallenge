@@ -1,5 +1,5 @@
 import { getGitHubUser } from '../services/githubService.js';
-import { users, saveUser, MAX_USERS } from '../services/usersService.js';
+import { users, saveUser, MAX_USERS, toggleStarredUser } from '../services/usersService.js';
 
 const postUsersSchema = {
     type: 'object',
@@ -29,7 +29,14 @@ export default async function (fastify, opts) {
     })
 
     fastify.get('/users', async (request, reply) => {
-      return Object.values(users)
+        const { sort } = request.query;
+        const userList = Object.values(users);
+
+        if (sort === 'asc') {
+            userList.sort((a, b) => a.username.localeCompare(b.username));
+        }
+
+        return reply.status(201).send(userList)
     })
 
     fastify.delete('/users/:username', async (request, reply) => {
@@ -42,5 +49,17 @@ export default async function (fastify, opts) {
         delete users[username];
         
         return reply.status(204).send({ message: 'Usuário deletado' });
+    });
+
+    fastify.patch('/users/:username/toggle-star', async (request, reply) => {
+        const { username } = request.params;
+
+        if (!users[username]) {
+            return reply.status(404).send({ message: 'Usuário não encontrado' });
+        }
+
+        const user = toggleStarredUser(username);
+
+        return reply.status(200).send({ message: `Usuário ${username} ${user.starred ? 'destacado' : 'removido'} com sucesso`, user });
     });
 }
