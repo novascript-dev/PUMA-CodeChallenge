@@ -1,6 +1,9 @@
 # Code Challenge PUMA - UnB
 
-As regras de negócio do desafio podem ser lidas no [repositório oficial do desafio](https://github.com/jeffersonfelixdev/puma-code-challenge).
+Esse projeto te possibilita armazernar seus usuários favoritos do GitHub em memória e manuseá-los; ele faz parte de um desafio do processo seletivo PUMA - UnB.
+
+Mais informações sobre as regras de negócio desse projeto podem ser lidas no [repositório oficial do desafio](https://github.com/jeffersonfelixdev/puma-code-challenge).
+
 
 ## Rodando este projeto:
 
@@ -16,11 +19,21 @@ O projeto foi criado utilizando `Turborepo`, portanto, instale todas as dependê
 pnpm install
 ```
 
-e, logo após, para inicializar os apps (backend e frontend) apenas dispare o comando:
+e, logo após, **para inicializar os apps (backend e frontend) apenas dispare o comando**:
 
 ```sh
 pnpm run dev
 ```
+
+Para rodar os testes do backend, basta acessar a pasta `apps/backend` e rodar:
+
+```sh
+pnpm run test
+```
+
+Onde os seguintes testes rodarão:
+
+![](https://imgur.com/seMWGud.png)
 
 ---
 
