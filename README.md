@@ -26,6 +26,10 @@ pnpm run dev
 
 ## Escolha dos Frameworks
 
+### DevOps:
+**TurboRepo**:
+- Utilizei turborepo para facilitar rodar os dois projetos num só monorepo; além disso fica fácil centralizar os testes e linting.
+
 ### BackEnd:
 **Fastify**:
 - a CLI permite gerar um esqueleto de rotas altamente extensível;
